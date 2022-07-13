@@ -12,7 +12,7 @@ import javax.validation.constraints.*;
 /**
  * Link
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-06T11:18:00.272393600-03:00[America/Sao_Paulo]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-13T09:51:29.574502700-03:00[America/Sao_Paulo]")
 public class Link   {
   @JsonProperty("rel")
   private String rel;

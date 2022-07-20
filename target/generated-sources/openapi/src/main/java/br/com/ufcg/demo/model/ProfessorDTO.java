@@ -1,20 +1,29 @@
 package br.com.ufcg.demo.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
+import java.util.Arrays;
 import org.openapitools.jackson.nullable.JsonNullable;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
 
 /**
  * Modelo de ProfessorDTO da aplicação.
  */
-@ApiModel(description = "Modelo de ProfessorDTO da aplicação.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-13T09:51:29.574502700-03:00[America/Sao_Paulo]")
-public class ProfessorDTO   {
+
+@Schema(name = "ProfessorDTO", description = "Modelo de ProfessorDTO da aplicação.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-20T09:56:59.482560800-03:00[America/Sao_Paulo]")
+public class ProfessorDTO {
+
   @JsonProperty("name")
   private String name;
 
@@ -36,10 +45,8 @@ public class ProfessorDTO   {
    * Nome do professor
    * @return name
   */
-  @ApiModelProperty(example = "Pedro", required = true, value = "Nome do professor")
-  @NotNull
-
-
+  @NotNull 
+  @Schema(name = "name", example = "Pedro", description = "Nome do professor", required = true)
   public String getName() {
     return name;
   }
@@ -57,10 +64,8 @@ public class ProfessorDTO   {
    * Senha
    * @return password
   */
-  @ApiModelProperty(example = "1234Abcd", required = true, value = "Senha")
-  @NotNull
-
-@Size(min=8,max=16) 
+  @NotNull @Size(min = 8, max = 16) 
+  @Schema(name = "password", example = "1234Abcd", description = "Senha", required = true)
   public String getPassword() {
     return password;
   }
@@ -80,9 +85,8 @@ public class ProfessorDTO   {
    * maximum: 70
    * @return serviceTime
   */
-  @ApiModelProperty(example = "15", value = "")
-
-@Min(0) @Max(70) 
+  @Min(0) @Max(70) 
+  @Schema(name = "serviceTime", example = "15", required = false)
   public Integer getServiceTime() {
     return serviceTime;
   }
@@ -100,9 +104,8 @@ public class ProfessorDTO   {
    * Get discipline
    * @return discipline
   */
-  @ApiModelProperty(example = "Lógica", value = "")
-
-
+  
+  @Schema(name = "discipline", example = "Lógica", required = false)
   public JsonNullable<String> getDiscipline() {
     return discipline;
   }
@@ -110,7 +113,6 @@ public class ProfessorDTO   {
   public void setDiscipline(JsonNullable<String> discipline) {
     this.discipline = discipline;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -127,16 +129,26 @@ public class ProfessorDTO   {
         Objects.equals(this.discipline, professorDTO.discipline);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
     return Objects.hash(name, password, serviceTime, discipline);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class ProfessorDTO {\n");
-    
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    serviceTime: ").append(toIndentedString(serviceTime)).append("\n");

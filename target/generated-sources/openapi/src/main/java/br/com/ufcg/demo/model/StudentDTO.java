@@ -1,20 +1,27 @@
 package br.com.ufcg.demo.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
 
 /**
  * Modelo de StudentDTO da aplicação.
  */
-@ApiModel(description = "Modelo de StudentDTO da aplicação.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-13T09:51:29.574502700-03:00[America/Sao_Paulo]")
-public class StudentDTO   {
+
+@Schema(name = "StudentDTO", description = "Modelo de StudentDTO da aplicação.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-20T09:56:59.482560800-03:00[America/Sao_Paulo]")
+public class StudentDTO {
+
   @JsonProperty("name")
   private String name;
 
@@ -33,10 +40,8 @@ public class StudentDTO   {
    * Nome do Estudante
    * @return name
   */
-  @ApiModelProperty(example = "José", required = true, value = "Nome do Estudante")
-  @NotNull
-
-
+  @NotNull 
+  @Schema(name = "name", example = "José", description = "Nome do Estudante", required = true)
   public String getName() {
     return name;
   }
@@ -54,10 +59,8 @@ public class StudentDTO   {
    * Senha de acesso
    * @return password
   */
-  @ApiModelProperty(example = "78adRf99", required = true, value = "Senha de acesso")
-  @NotNull
-
-@Size(min=8,max=24) 
+  @NotNull @Size(min = 8, max = 24) 
+  @Schema(name = "password", example = "78adRf99", description = "Senha de acesso", required = true)
   public String getPassword() {
     return password;
   }
@@ -75,9 +78,8 @@ public class StudentDTO   {
    * Matrícula do Estudante
    * @return registration
   */
-  @ApiModelProperty(example = "118111693", value = "Matrícula do Estudante")
-
-@Size(max=9) 
+  @Size(max = 9) 
+  @Schema(name = "registration", example = "118111693", description = "Matrícula do Estudante", required = false)
   public String getRegistration() {
     return registration;
   }
@@ -85,7 +87,6 @@ public class StudentDTO   {
   public void setRegistration(String registration) {
     this.registration = registration;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -110,7 +111,6 @@ public class StudentDTO   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class StudentDTO {\n");
-    
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");
     sb.append("    registration: ").append(toIndentedString(registration)).append("\n");

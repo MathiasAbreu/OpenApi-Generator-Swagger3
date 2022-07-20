@@ -1,20 +1,27 @@
 package br.com.ufcg.demo.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
 
 /**
  * Modelo de Student da aplicação.
  */
-@ApiModel(description = "Modelo de Student da aplicação.")
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-13T09:51:29.574502700-03:00[America/Sao_Paulo]")
-public class Student   {
+
+@Schema(name = "Student", description = "Modelo de Student da aplicação.")
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-20T09:56:59.482560800-03:00[America/Sao_Paulo]")
+public class Student {
+
   @JsonProperty("id")
   private Long id;
 
@@ -36,9 +43,8 @@ public class Student   {
    * Gerado automaticamente
    * @return id
   */
-  @ApiModelProperty(example = "2", readOnly = true, value = "Gerado automaticamente")
-
-
+  
+  @Schema(name = "id", accessMode = Schema.AccessMode.READ_ONLY, example = "2", description = "Gerado automaticamente", required = false)
   public Long getId() {
     return id;
   }
@@ -56,10 +62,8 @@ public class Student   {
    * Nome do Student
    * @return name
   */
-  @ApiModelProperty(example = "Josué", required = true, value = "Nome do Student")
-  @NotNull
-
-
+  @NotNull 
+  @Schema(name = "name", example = "Josué", description = "Nome do Student", required = true)
   public String getName() {
     return name;
   }
@@ -77,10 +81,8 @@ public class Student   {
    * Senha de acesso
    * @return password
   */
-  @ApiModelProperty(required = true, value = "Senha de acesso")
-  @NotNull
-
-@Size(min=8,max=24) 
+  @NotNull @Size(min = 8, max = 24) 
+  @Schema(name = "password", description = "Senha de acesso", required = true)
   public String getPassword() {
     return password;
   }
@@ -98,9 +100,8 @@ public class Student   {
    * Matricula do Student
    * @return registration
   */
-  @ApiModelProperty(example = "118111398", value = "Matricula do Student")
-
-@Size(max=9) 
+  @Size(max = 9) 
+  @Schema(name = "registration", example = "118111398", description = "Matricula do Student", required = false)
   public String getRegistration() {
     return registration;
   }
@@ -108,7 +109,6 @@ public class Student   {
   public void setRegistration(String registration) {
     this.registration = registration;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -134,7 +134,6 @@ public class Student   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Student {\n");
-    
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    name: ").append(toIndentedString(name)).append("\n");
     sb.append("    password: ").append(toIndentedString(password)).append("\n");

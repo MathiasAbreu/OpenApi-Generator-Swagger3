@@ -1,19 +1,26 @@
 package br.com.ufcg.demo.model;
 
+import java.net.URI;
 import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 import org.openapitools.jackson.nullable.JsonNullable;
+import java.time.OffsetDateTime;
 import javax.validation.Valid;
 import javax.validation.constraints.*;
+import io.swagger.v3.oas.annotations.media.Schema;
+
+
+import java.util.*;
+import javax.annotation.Generated;
 
 /**
  * Link
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-13T09:51:29.574502700-03:00[America/Sao_Paulo]")
-public class Link   {
+
+@Generated(value = "org.openapitools.codegen.languages.SpringCodegen", date = "2022-07-20T09:56:59.482560800-03:00[America/Sao_Paulo]")
+public class Link {
+
   @JsonProperty("rel")
   private String rel;
 
@@ -50,9 +57,8 @@ public class Link   {
    * Get rel
    * @return rel
   */
-  @ApiModelProperty(value = "")
-
-
+  
+  @Schema(name = "rel", required = false)
   public String getRel() {
     return rel;
   }
@@ -70,9 +76,8 @@ public class Link   {
    * Get href
    * @return href
   */
-  @ApiModelProperty(value = "")
-
-
+  
+  @Schema(name = "href", required = false)
   public String getHref() {
     return href;
   }
@@ -90,9 +95,8 @@ public class Link   {
    * Get hreflang
    * @return hreflang
   */
-  @ApiModelProperty(value = "")
-
-
+  
+  @Schema(name = "hreflang", required = false)
   public String getHreflang() {
     return hreflang;
   }
@@ -110,9 +114,8 @@ public class Link   {
    * Get media
    * @return media
   */
-  @ApiModelProperty(value = "")
-
-
+  
+  @Schema(name = "media", required = false)
   public String getMedia() {
     return media;
   }
@@ -130,9 +133,8 @@ public class Link   {
    * Get title
    * @return title
   */
-  @ApiModelProperty(value = "")
-
-
+  
+  @Schema(name = "title", required = false)
   public String getTitle() {
     return title;
   }
@@ -150,9 +152,8 @@ public class Link   {
    * Get type
    * @return type
   */
-  @ApiModelProperty(value = "")
-
-
+  
+  @Schema(name = "type", required = false)
   public String getType() {
     return type;
   }
@@ -170,9 +171,8 @@ public class Link   {
    * Get deprecation
    * @return deprecation
   */
-  @ApiModelProperty(value = "")
-
-
+  
+  @Schema(name = "deprecation", required = false)
   public String getDeprecation() {
     return deprecation;
   }
@@ -190,9 +190,8 @@ public class Link   {
    * Get profile
    * @return profile
   */
-  @ApiModelProperty(value = "")
-
-
+  
+  @Schema(name = "profile", required = false)
   public String getProfile() {
     return profile;
   }
@@ -210,9 +209,8 @@ public class Link   {
    * Get name
    * @return name
   */
-  @ApiModelProperty(value = "")
-
-
+  
+  @Schema(name = "name", required = false)
   public String getName() {
     return name;
   }
@@ -220,7 +218,6 @@ public class Link   {
   public void setName(String name) {
     this.name = name;
   }
-
 
   @Override
   public boolean equals(Object o) {
@@ -251,7 +248,6 @@ public class Link   {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class Link {\n");
-    
     sb.append("    rel: ").append(toIndentedString(rel)).append("\n");
     sb.append("    href: ").append(toIndentedString(href)).append("\n");
     sb.append("    hreflang: ").append(toIndentedString(hreflang)).append("\n");
